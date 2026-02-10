@@ -15,8 +15,8 @@ class IngestService:
             chunk_overlap=chunk_overlap,
         )
 
-    def ingest(self, path: str):
-        docs = self.loader.load(path)
+    def ingest(self, path_or_filetext: str):
+        docs = self.loader.load(path_or_filetext)
 
         chunks = self.splitter.split_documents(docs)
 

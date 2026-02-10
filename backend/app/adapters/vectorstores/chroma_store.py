@@ -12,4 +12,3 @@ class ChromaStoreAdapter(VectorStorePort):
 
     def add_documents(self, documents):
         self.db.add_documents(documents)
-        self.db.persist()

@@ -11,8 +11,13 @@ app.add_middleware(
 )
 
 
-from api.routes import chat
-from api.routes import ingest
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
 
-app.include_router(chat.router)
-app.include_router(ingest.router)
+
+from api.routes.chat import router as chat_router
+from api.routes.ingest import router as ingest_router
+
+app.include_router(ingest_router)
+app.include_router(chat_router)

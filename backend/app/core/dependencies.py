@@ -1,3 +1,4 @@
+from app.adapters.loaders.generic_loader import GenericLoaderAdapter
 from app.adapters.loaders.markdown_loader import MarkdownLoaderAdapter
 from app.adapters.embeddings.ollama_embeddings import OllamaEmbeddingAdapter
 from app.adapters.vectorstores.chroma_store import ChromaStoreAdapter
@@ -13,7 +14,7 @@ def get_ingest_service():
         embedding=embedding_adapter
     )
 
-    loader = MarkdownLoaderAdapter()
+    loader = GenericLoaderAdapter()
 
     return IngestService(
         loader=loader,
