@@ -1,3 +1,4 @@
+from app.adapters.llm.ollama_llm import OllamaLLMAdapter
 from app.adapters.loaders.generic_loader import GenericLoaderAdapter
 from app.adapters.loaders.markdown_loader import MarkdownLoaderAdapter
 from app.adapters.embeddings.ollama_embeddings import OllamaEmbeddingAdapter
@@ -22,7 +23,8 @@ def get_ingest_service():
     )
 
 def get_chat_service():
-    llm = GeminiLLMAdapter()
+    #llm = GeminiLLMAdapter()
+    llm = OllamaLLMAdapter()
     retriever = ChromaRetrieverAdapter()
 
     return ChatService(
